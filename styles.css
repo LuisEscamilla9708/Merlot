@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cafe-oscuro: #4a230d;
+  --cafe-medio: #6f4217;
+  --dorado: #a9781b;
+  --crema: #fffaf0;
+  --texto: #5c3a22;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+
+  /* Aquí bajé la opacidad para que el fondo se vea más claro */
+  background:
+    linear-gradient(rgba(219, 212, 208, 0.164), rgba(207, 206, 205, 0.42)),
+    url("imagenes/fondo.jfif") center / cover fixed no-repeat;
+
+  color: var(--texto);
+}
+
+.menu-page {
+  width: min(1050px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 22px 18px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 620px) 150px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu-card {
+  width: 100%;
+  max-width: 620px;
+  background: rgba(255, 250, 240, 0.94);
+  border: 1px solid rgba(196, 151, 72, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+  padding: 26px 42px 34px;
+  position: relative;
+}
+
+.menu-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(169, 120, 27, 0.28);
+  pointer-events: none;
+}
+
+.menu-header {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  width: min(390px, 100%);
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.schedule {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--cafe-oscuro);
+  color: var(--crema);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+.category {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+}
+
+.category h1 {
+  color: var(--cafe-oscuro);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.intro {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.dish {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(111, 66, 23, 0.18);
+}
+
+.dish h2 {
+  color: var(--cafe-oscuro);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+
+.dish p {
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.dish span {
+  align-self: end;
+  color: var(--cafe-oscuro);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+
+.menu-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.menu-footer p {
+  color: var(--cafe-oscuro);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.order-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #4a230d, #9c671c);
+  color: #fff7df;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(74, 35, 13, 0.28);
+}
+
+.order-info {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: rgba(111, 66, 23, 0.08);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.order-info h2 {
+  color: var(--cafe-oscuro);
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.order-info p {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.small-text {
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.side-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: rgba(169, 120, 27, 0.88);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.side-title span {
+  font-family: Arial, sans-serif;
+  font-size: clamp(4rem, 9vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.side-title small {
+  margin-top: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 250, 240, 0.9);
+}
+
+@media (max-width: 850px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .menu-page {
+    display: block;
+    padding: 16px 12px;
+  }
+
+  .menu-card {
+    max-width: 100%;
+    padding: 24px 20px 30px;
+  }
+
+  .menu-card::before {
+    inset: 10px;
+  }
+
+  .logo {
+    width: min(330px, 100%);
+  }
+
+  .side-title {
+    display: none;
+  }
+
+  .dish {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dish span {
+    justify-self: end;
+    font-size: 1rem;
+  }
+
+  .dish p {
+    font-size: 0.98rem;
+  }
+
+  .schedule {
+    font-size: 0.85rem;
+  }
+}
