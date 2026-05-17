@@ -308,7 +308,7 @@ body::after {
   }
 
   body::after {
-    background: rgba(43, 20, 8, 0.08);
+    background: rgba(43, 20, 8, 0.24);
   }
 
   .menu-page {
@@ -322,7 +322,7 @@ body::after {
     width: 76%;
     max-width: 360px;
     margin: 0 auto;
-    background: rgba(255, 250, 240, 0.80);
+    background: rgba(255, 250, 240, 0.938);
     padding: 18px 15px 24px;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
   }
@@ -438,7 +438,7 @@ body::after {
     width: 72%;
     max-width: 330px;
     padding: 16px 14px 22px;
-    background: rgba(255, 250, 240, 0.78);
+    background: rgba(255, 250, 240, 0.918);
   }
 
   .logo {
