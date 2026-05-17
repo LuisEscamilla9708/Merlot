@@ -374,6 +374,17 @@ body {
 /* ========================= */
 
 @media (max-width: 480px) {
+
+
+    body {
+    background-attachment: scroll;
+
+    /* Fondo más claro en celular */
+    background:
+      linear-gradient(rgba(43, 20, 8, 0.12), rgba(43, 20, 8, 0.18)),
+      url("imagenes/fondo111.jpg") center / cover no-repeat;
+  }
+
   .menu-page {
     padding: 20px 0;
   }
