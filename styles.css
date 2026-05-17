@@ -63,7 +63,7 @@ body {
 }
 
 .logo {
-  width: min(390px, 100%);
+  width: min(320px, 100%);
   display: block;
   margin: 0 auto 6px;
 }
@@ -212,12 +212,14 @@ body {
 
   .menu-page {
     display: block;
-    padding: 16px 12px;
+    padding: 18px 8px;
   }
 
   .menu-card {
-    max-width: 100%;
-    padding: 24px 20px 30px;
+    width: 88%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 18px 26px;
   }
 
   .menu-card::before {
@@ -225,28 +227,70 @@ body {
   }
 
   .logo {
-    width: min(330px, 100%);
+    width: min(280px, 100%);
   }
 
-  .side-title {
-    display: none;
+  .category {
+    margin-top: 18px;
+  }
+
+  .category h1 {
+    font-size: 2.1rem;
+  }
+
+  .intro {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
   }
 
   .dish {
     grid-template-columns: 1fr;
     gap: 6px;
+    padding: 10px 0;
+  }
+
+  .dish h2 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+
+  .dish p {
+    font-size: 0.88rem;
+    line-height: 1.3;
   }
 
   .dish span {
     justify-self: end;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
-  .dish p {
-    font-size: 0.98rem;
+  .menu-footer p {
+    font-size: 1.35rem;
+  }
+
+  .order-button {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+
+  .order-info {
+    padding: 12px 14px;
+  }
+
+  .order-info h2 {
+    font-size: 1.05rem;
+  }
+
+  .order-info p {
+    font-size: 0.88rem;
   }
 
   .schedule {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    padding: 6px 14px;
+  }
+
+  .side-title {
+    display: none;
   }
 }
