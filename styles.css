@@ -19,7 +19,7 @@ body {
   /* Aquí bajé la opacidad para que el fondo se vea más claro */
   background:
     linear-gradient(rgba(219, 212, 208, 0.164), rgba(207, 206, 205, 0.42)),
-    url("imagenes/fondo.jfif") center / cover fixed no-repeat;
+    url("imagenes/fondo111.jpg") center / cover fixed no-repeat;
 
   color: var(--texto);
 }
