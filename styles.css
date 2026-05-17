@@ -226,7 +226,7 @@ body {
   body {
     background:
       linear-gradient(rgba(43, 20, 8, 0.16), rgba(43, 20, 8, 0.22)),
-      url("assets/fondo-restaurante.png") center / cover fixed no-repeat;
+      url("imagenes/fondo111.jpg") center / cover fixed no-repeat;
   }
 
   .menu-page {
@@ -272,7 +272,7 @@ body {
     /* Fondo más claro en celular */
     background:
       linear-gradient(rgba(43, 20, 8, 0.12), rgba(43, 20, 8, 0.18)),
-      url("assets/fondo-restaurante.png") center / cover no-repeat;
+      url("imagenes/fondo111.jpg") center / cover no-repeat;
   }
 
   .menu-page {
