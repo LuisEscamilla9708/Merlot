@@ -479,3 +479,311 @@ body::after {
     font-size: 1rem;
   }
 }
+
+/* Ajuste para que quepan más platillos dentro de la carta */
+.category {
+  margin-top: 14px;
+}
+
+.dish {
+  padding: 8px 0;
+  gap: 10px;
+}
+
+.dish h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  margin-bottom: 4px;
+}
+
+.dish p {
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+
+.dish span {
+  font-size: 0.9rem;
+}
+
+.order-info {
+  margin-top: 12px;
+  padding: 10px 12px;
+}
+
+.order-info h2 {
+  font-size: 1rem;
+}
+
+/* Ajuste especial para celular */
+@media (max-width: 850px) {
+  .menu-card {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .category {
+    margin-top: 12px;
+  }
+
+  .dish {
+    padding: 7px 0;
+  }
+
+  .dish h2 {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+
+  .dish p {
+    font-size: 0.68rem;
+    line-height: 1.18;
+  }
+
+  .dish span {
+    font-size: 0.72rem;
+  }
+
+  .order-info h2 {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================= */
+/* CARRUSEL DE PLATILLOS */
+/* ========================= */
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+}
+
+.carousel-window {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(111, 66, 23, 0.18);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-height: 250px;
+  padding: 22px 46px 26px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dish-number {
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(74, 35, 13, 0.65);
+  margin-bottom: 10px;
+}
+
+.carousel-slide h2 {
+  color: var(--cafe-oscuro);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.carousel-slide p {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.dish-price {
+  display: block;
+  margin-top: 18px;
+  color: var(--cafe-oscuro);
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+/* Botones laterales */
+.carousel-btn {
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--cafe-oscuro);
+  color: var(--crema);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-btn.prev {
+  left: 2px;
+}
+
+.carousel-btn.next {
+  right: 2px;
+}
+
+/* Puntos inferiores */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(74, 35, 13, 0.35);
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--cafe-oscuro);
+  transform: scale(1.25);
+}
+
+.swipe-text {
+  text-align: center;
+  font-size: 0.78rem;
+  margin-top: 10px;
+  color: rgba(74, 35, 13, 0.75);
+}
+
+/* Ajuste del aviso final */
+.order-info {
+  margin-top: 14px;
+}
+
+.order-info h2 {
+  font-size: 1rem;
+}
+
+/* ========================= */
+/* CARRUSEL EN TABLETAS */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .carousel-slide {
+    min-height: 240px;
+    padding: 20px 42px 24px;
+  }
+
+  .carousel-slide h2 {
+    font-size: 2rem;
+  }
+
+  .carousel-slide p {
+    font-size: 0.94rem;
+  }
+
+  .dish-price {
+    font-size: 1.15rem;
+  }
+}
+
+/* ========================= */
+/* CARRUSEL EN CELULARES */
+/* ========================= */
+
+@media (max-width: 850px) {
+  .carousel-slide {
+    min-height: 210px;
+    padding: 18px 34px 22px;
+  }
+
+  .dish-number {
+    font-size: 0.66rem;
+    margin-bottom: 8px;
+  }
+
+  .carousel-slide h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .carousel-slide p {
+    font-size: 0.78rem;
+    line-height: 1.28;
+  }
+
+  .dish-price {
+    margin-top: 14px;
+    font-size: 0.95rem;
+  }
+
+  .carousel-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.4rem;
+  }
+
+  .carousel-btn.prev {
+    left: 0;
+  }
+
+  .carousel-btn.next {
+    right: 0;
+  }
+
+  .carousel-dots {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .swipe-text {
+    font-size: 0.68rem;
+  }
+
+  .order-info h2 {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================= */
+/* CELULARES PEQUEÑOS */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .carousel-slide {
+    min-height: 195px;
+    padding: 16px 30px 20px;
+  }
+
+  .carousel-slide h2 {
+    font-size: 1.08rem;
+  }
+
+  .carousel-slide p {
+    font-size: 0.72rem;
+  }
+
+  .dish-price {
+    font-size: 0.86rem;
+  }
+
+  .carousel-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 1.25rem;
+  }
+}

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menú Desayunos Ari Merlot</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
 
@@ -12,66 +12,100 @@
     <section class="menu-card">
       <header class="menu-header">
         <img src="imagenes/logo-removebg-preview (1) (1).png" alt="Logo Desayunos Ari Merlot" class="logo" /> 
-        <p class="schedule">Horario: 7:00 am  a 2:00 pm</p>
+        <p class="schedule">Horario: 7:00 am a 2:00 pm</p>
       </header>
 
       <section class="category">
         <h1>Menú</h1>
-  
 
-        <article class="dish">
-          <div>
-            <h2>Desayuno campestre</h2>
-            <p>Huevos con jamón, acompañados de frijoles refritos y arroz.</p>
-          </div>
-          <span>$105.00</span>
-        </article>
+        <div class="carousel">
+          <button class="carousel-btn prev" type="button" aria-label="Platillo anterior">
+            ‹
+          </button>
 
-        <article class="dish">
-          <div>
-            <h2>Mañaneros</h2>
-            <p>Huevos estrellados en su punto con arroz por debajo.</p>
-          </div>
-          <span>$99.00</span>
-        </article>
+          <div class="carousel-window">
+            <div class="carousel-track">
 
-        <article class="dish">
-          <div>
-            <h2>Tricolor</h2>
-            <p>Huevos a la mexicana, acompañados con arroz y frijoles refritos.</p>
-          </div>
-          <span>$105.00</span>
-        </article>
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 1 de 8</p>
+                <h2>Desayuno campestre</h2>
+                <p>Huevos con jamón, acompañados de frijoles refritos y arroz.</p>
+                <span class="dish-price">$105.00</span>
+              </article>
 
-        <article class="dish">
-          <div>
-            <h2>Divorciados</h2>
-            <p>Tortilla frita con huevo en su punto, bañados en salsa verde y roja.</p>
-          </div>
-          <span>$149.00</span>
-        </article>
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 2 de 8</p>
+                <h2>Mañaneros</h2>
+                <p>Huevos estrellados en su punto con arroz por debajo.</p>
+                <span class="dish-price">$99.00</span>
+              </article>
 
-        <article class="dish">
-          <div>
-            <h2>Enchiladas de la casa</h2>
-            <p>Rellenas de pollo, acompañadas con crema ácida, queso blanco y cebolla. Elige entre verdes, rojas o mixtas.</p>
-          </div>
-          <span>$119.00</span>
-        </article>
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 3 de 8</p>
+                <h2>Tricolor</h2>
+                <p>Huevos a la mexicana, acompañados con arroz y frijoles refritos.</p>
+                <span class="dish-price">$105.00</span>
+              </article>
 
-        <article class="dish">
-          <div>
-            <h2>Tentación de Ari</h2>
-            <p>Enchiladas suizas, rellenas de pollo, acompañadas de crema ácida, queso blanco y cebolla.</p>
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 4 de 8</p>
+                <h2>Divorciados</h2>
+                <p>Tortilla frita con huevo en su punto, bañados en salsa verde y roja.</p>
+                <span class="dish-price">$149.00</span>
+              </article>
+
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 5 de 8</p>
+                <h2>Enchiladas de la casa</h2>
+                <p>Rellenas de pollo, acompañadas con crema ácida, queso blanco y cebolla. Elige entre verdes, rojas o mixtas.</p>
+                <span class="dish-price">$119.00</span>
+              </article>
+
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 6 de 8</p>
+                <h2>Tentación de Ari</h2>
+                <p>Enchiladas suizas, rellenas de pollo, acompañadas de crema ácida, queso blanco y cebolla.</p>
+                <span class="dish-price">$195.00</span>
+              </article>
+
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 7 de 8</p>
+                <h2>Milanesa gratinada</h2>
+                <p>Milanesa gratinada, acompañada con guarnición de la casa.</p>
+                <span class="dish-price">$195.00</span>
+              </article>
+
+              <article class="carousel-slide">
+                <p class="dish-number">Platillo 8 de 8</p>
+                <h2>Hamburguesa Jan</h2>
+                <p>Hamburguesa de la casa, preparada al momento y acompañada con guarnición.</p>
+                <span class="dish-price">$195.00</span>
+              </article>
+
+            </div>
           </div>
-          <span>$195.00</span>
-        </article>
+
+          <button class="carousel-btn next" type="button" aria-label="Siguiente platillo">
+            ›
+          </button>
+
+          <div class="carousel-dots">
+            <button class="dot active" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+            <button class="dot" type="button"></button>
+          </div>
+
+          <p class="swipe-text">Desliza o usa las flechas para ver más platillos.</p>
+        </div>
       </section>
 
-    
-
       <section id="pedido" class="order-info">
-
+        <h2>Todos llevan café y pan.</h2>
       </section>
     </section>
 
@@ -80,6 +114,70 @@
       <small>7:00am a 2:00pm</small>
     </aside>
   </main>
+
+  <script>
+    const track = document.querySelector(".carousel-track");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".dot");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const carouselWindow = document.querySelector(".carousel-window");
+
+    let currentIndex = 0;
+    let startX = 0;
+
+    function showSlide(index) {
+      if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
+    });
+
+    carouselWindow.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carouselWindow.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const difference = startX - endX;
+
+      if (difference > 50) {
+        nextSlide();
+      }
+
+      if (difference < -50) {
+        prevSlide();
+      }
+    });
+
+    setInterval(nextSlide, 6000);
+  </script>
 
 </body>
 </html>
