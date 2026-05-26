@@ -553,3 +553,47 @@ body::after {
     font-size: 0.82rem;
   }
 }
+
+/* Quitar espacio blanco debajo de la imagen en celular */
+@media (max-width: 850px) {
+  .carousel-slide {
+    min-height: auto !important;
+    padding: 8px 30px 10px !important;
+  }
+
+  .dish-image {
+    max-width: 260px !important;
+    height: 135px !important;
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
+    object-fit: cover;
+  }
+
+  .carousel-window {
+    margin-bottom: 0 !important;
+  }
+
+  .carousel-dots {
+    margin-top: 10px !important;
+  }
+
+  .swipe-text {
+    margin-top: 8px !important;
+  }
+}
+
+/* Ajuste para celulares pequeños */
+@media (max-width: 480px) {
+  .carousel-slide {
+    min-height: auto !important;
+    padding: 6px 26px 8px !important;
+  }
+
+  .dish-image {
+    max-width: 240px !important;
+    height: 125px !important;
+    margin-top: 8px !important;
+    margin-bottom: 2px !important;
+    object-fit: cover;
+  }
+}
