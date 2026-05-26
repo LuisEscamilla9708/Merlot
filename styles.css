@@ -67,7 +67,7 @@ body::after {
   width: 100%;
   max-width: 560px;
   margin: 0 auto;
-  background: rgb(255, 250, 240);
+  background: rgba(255, 250, 240, 0.92);
   border: 2px solid rgba(140, 92, 46, 0.45);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.30);
   padding: 24px 34px 30px;
@@ -135,7 +135,7 @@ body::after {
 .carousel {
   position: relative;
   z-index: 1;
-  margin-top: 12px;
+  margin-top: 6px;
 }
 
 .carousel-window {
@@ -151,22 +151,25 @@ body::after {
 
 .carousel-slide {
   flex: 0 0 100%;
-  min-height: 250px;
-  padding: 22px 46px 26px;
+  min-height: 390px;
+  padding: 10px 46px 18px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
+/* Número de platillo */
 .dish-number {
   font-family: Arial, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
-  color: rgba(74, 35, 13, 0.70);
+  color: rgba(74, 35, 13, 0.72);
   margin-bottom: 10px;
 }
 
+/* Nombre del platillo */
 .carousel-slide h2 {
   color: var(--cafe-oscuro);
   font-size: clamp(1.7rem, 4vw, 2.4rem);
@@ -174,24 +177,38 @@ body::after {
   margin-bottom: 12px;
 }
 
-.carousel-slide p {
+/* Descripción */
+.dish-description {
   font-size: 1rem;
   line-height: 1.35;
 }
 
+/* Precio */
 .dish-price {
   display: block;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--cafe-oscuro);
   font-family: Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 900;
 }
 
+/* Imagen del platillo */
+.dish-image {
+  width: 100%;
+  max-width: 330px;
+  height: 150px;
+  margin-top: 10px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid var(--linea-cafe);
+  box-shadow: 0 8px 18px rgba(74, 35, 13, 0.25);
+}
+
 /* Botones del carrusel */
 .carousel-btn {
   position: absolute;
-  top: 46%;
+  top: 39%;
   transform: translateY(-50%);
   width: 34px;
   height: 34px;
@@ -303,7 +320,7 @@ body::after {
     width: 74%;
     max-width: 540px;
     padding: 22px 28px 28px;
-    background: rgba(255, 250, 240, 0.88);
+    background: rgba(255, 250, 240, 0.90);
   }
 
   .logo {
@@ -319,20 +336,25 @@ body::after {
   }
 
   .carousel-slide {
-    min-height: 240px;
-    padding: 20px 42px 24px;
+    min-height: 370px;
+    padding: 10px 42px 18px;
   }
 
   .carousel-slide h2 {
     font-size: 2rem;
   }
 
-  .carousel-slide p {
+  .dish-description {
     font-size: 0.94rem;
   }
 
   .dish-price {
     font-size: 1.15rem;
+  }
+
+  .dish-image {
+    max-width: 310px;
+    height: 145px;
   }
 }
 
@@ -389,9 +411,14 @@ body::after {
     margin: 10px 0 0;
   }
 
+  .carousel {
+    margin-top: 2px;
+  }
+
   .carousel-slide {
-    min-height: 210px;
-    padding: 18px 34px 22px;
+    min-height: 330px;
+    padding: 8px 34px 16px;
+    justify-content: flex-start;
   }
 
   .dish-number {
@@ -404,17 +431,25 @@ body::after {
     margin-bottom: 8px;
   }
 
-  .carousel-slide p {
+  .dish-description {
     font-size: 0.78rem;
     line-height: 1.28;
   }
 
   .dish-price {
-    margin-top: 14px;
+    margin-top: 12px;
     font-size: 0.95rem;
   }
 
+  .dish-image {
+    max-width: 240px;
+    height: 115px;
+    margin-top: 12px;
+    border-radius: 12px;
+  }
+
   .carousel-btn {
+    top: 36%;
     width: 28px;
     height: 28px;
     font-size: 1.4rem;
@@ -481,15 +516,15 @@ body::after {
   }
 
   .carousel-slide {
-    min-height: 195px;
-    padding: 16px 30px 20px;
+    min-height: 310px;
+    padding: 6px 30px 14px;
   }
 
   .carousel-slide h2 {
     font-size: 1.08rem;
   }
 
-  .carousel-slide p {
+  .dish-description {
     font-size: 0.72rem;
   }
 
@@ -497,7 +532,14 @@ body::after {
     font-size: 0.86rem;
   }
 
+  .dish-image {
+    max-width: 210px;
+    height: 100px;
+    margin-top: 10px;
+  }
+
   .carousel-btn {
+    top: 36%;
     width: 26px;
     height: 26px;
     font-size: 1.25rem;

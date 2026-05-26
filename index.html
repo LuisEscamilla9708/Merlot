@@ -4,14 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menú Desayunos Ari Merlot</title>
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
 
   <main class="menu-page">
     <section class="menu-card">
+
       <header class="menu-header">
-        <img src="imagenes/logo-removebg-preview (1) (1).png" alt="Logo Desayunos Ari Merlot" class="logo" /> 
+        <img 
+          src="imagenes/logo-removebg-preview (1) (1).png" 
+          alt="Logo Desayunos Ari Merlot" 
+          class="logo" 
+        />
+
         <p class="schedule">Horario: 7:00 am a 2:00 pm</p>
       </header>
 
@@ -19,6 +25,7 @@
         <h1>Menú</h1>
 
         <div class="carousel">
+
           <button class="carousel-btn prev" type="button" aria-label="Platillo anterior">
             ‹
           </button>
@@ -29,57 +36,105 @@
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 1 de 8</p>
                 <h2>Desayuno campestre</h2>
-                <p>Huevos con jamón, acompañados de frijoles refritos y arroz.</p>
+                <p class="dish-description">Huevos con jamón, acompañados de frijoles refritos y arroz.</p>
                 <span class="dish-price">$105.00</span>
+
+                <img 
+                  src="imagenes/DesayunoCampestre.jfif" 
+                  alt="Desayuno campestre" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 2 de 8</p>
                 <h2>Mañaneros</h2>
-                <p>Huevos estrellados en su punto con arroz por debajo.</p>
+                <p class="dish-description">Huevos estrellados en su punto con arroz por debajo.</p>
                 <span class="dish-price">$99.00</span>
+
+                <img 
+                  src="imagenes/mañaneros.jpg" 
+                  alt="Mañaneros" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 3 de 8</p>
                 <h2>Tricolor</h2>
-                <p>Huevos a la mexicana, acompañados con arroz y frijoles refritos.</p>
+                <p class="dish-description">Huevos a la mexicana, acompañados con arroz y frijoles refritos.</p>
                 <span class="dish-price">$105.00</span>
+
+                <img 
+                  src="imagenes/Tricolor.jpg" 
+                  alt="Tricolor" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 4 de 8</p>
                 <h2>Divorciados</h2>
-                <p>Tortilla frita con huevo en su punto, bañados en salsa verde y roja.</p>
+                <p class="dish-description">Tortilla frita con huevo en su punto, bañados en salsa verde y roja.</p>
                 <span class="dish-price">$149.00</span>
+
+                <img 
+                  src="imagenes/divorciados.jfif" 
+                  alt="Divorciados" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 5 de 8</p>
                 <h2>Enchiladas de la casa</h2>
-                <p>Rellenas de pollo, acompañadas con crema ácida, queso blanco y cebolla. Elige entre verdes, rojas o mixtas.</p>
+                <p class="dish-description">Rellenas de pollo, acompañadas con crema ácida, queso blanco y cebolla. Elige entre verdes, rojas o mixtas.</p>
                 <span class="dish-price">$119.00</span>
+
+                <img 
+                  src="imagenes/Enchiladas.jpeg" 
+                  alt="Enchiladas de la casa" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 6 de 8</p>
                 <h2>Tentación de Ari</h2>
-                <p>Enchiladas suizas, rellenas de pollo, acompañadas de crema ácida, queso blanco y cebolla.</p>
+                <p class="dish-description">Enchiladas suizas, rellenas de pollo, acompañadas de crema ácida, queso blanco y cebolla.</p>
                 <span class="dish-price">$195.00</span>
+
+                <img 
+                  src="imagenes/Tentacion de ari.jfif" 
+                  alt="Tentación de Ari" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 7 de 8</p>
                 <h2>Milanesa gratinada</h2>
-                <p>Milanesa gratinada, acompañada con guarnición de la casa.</p>
+                <p class="dish-description">Milanesa gratinada, acompañada con guarnición de la casa.</p>
                 <span class="dish-price">$195.00</span>
+
+                <img 
+                  src="imagenes/milaneza.jfif" 
+                  alt="Milanesa gratinada" 
+                  class="dish-image"
+                />
               </article>
 
               <article class="carousel-slide">
                 <p class="dish-number">Platillo 8 de 8</p>
                 <h2>Hamburguesa Jan</h2>
-                <p>Hamburguesa de la casa, preparada al momento y acompañada con guarnición.</p>
+                <p class="dish-description">Hamburguesa de la casa, preparada al momento y acompañada con guarnición.</p>
                 <span class="dish-price">$195.00</span>
+
+                <img 
+                  src="imagenes/Hamburguesa.jfif" 
+                  alt="Hamburguesa Jan" 
+                  class="dish-image"
+                />
               </article>
 
             </div>
@@ -90,14 +145,14 @@
           </button>
 
           <div class="carousel-dots">
-            <button class="dot active" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
-            <button class="dot" type="button"></button>
+            <button class="dot active" type="button" aria-label="Ver platillo 1"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 2"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 3"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 4"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 5"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 6"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 7"></button>
+            <button class="dot" type="button" aria-label="Ver platillo 8"></button>
           </div>
 
           <p class="swipe-text">Desliza o usa las flechas para ver más platillos.</p>
@@ -107,6 +162,7 @@
       <section id="pedido" class="order-info">
         <h2>Todos llevan café y pan.</h2>
       </section>
+
     </section>
 
     <aside class="side-title" aria-hidden="true">
@@ -125,6 +181,7 @@
 
     let currentIndex = 0;
     let startX = 0;
+    let autoPlay;
 
     function showSlide(index) {
       if (index < 0) {
@@ -150,12 +207,25 @@
       showSlide(currentIndex - 1);
     }
 
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
+    function resetAutoPlay() {
+      clearInterval(autoPlay);
+      autoPlay = setInterval(nextSlide, 9000);
+    }
+
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoPlay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoPlay();
+    });
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         showSlide(index);
+        resetAutoPlay();
       });
     });
 
@@ -169,14 +239,16 @@
 
       if (difference > 50) {
         nextSlide();
+        resetAutoPlay();
       }
 
       if (difference < -50) {
         prevSlide();
+        resetAutoPlay();
       }
     });
 
-    setInterval(nextSlide, 6000);
+    autoPlay = setInterval(nextSlide, 6000);
   </script>
 
 </body>
