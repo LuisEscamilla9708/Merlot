@@ -772,3 +772,193 @@ body::after {
     font-size: 0.95rem !important;
   }
 }
+
+/* ===== CORRECCIÓN FINAL: CENTRAR MENÚ Y QUITAR ESPACIO SOBRANTE ===== */
+
+.menu-title,
+.category {
+  text-align: center !important;
+  margin-top: 14px !important;
+}
+
+.menu-title h1,
+.category h1 {
+  display: block !important;
+  width: 100% !important;
+  color: var(--cafe-oscuro) !important;
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  margin: 0 auto 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px solid var(--linea-cafe) !important;
+}
+
+/* Elimina líneas duplicadas si tu versión anterior usaba ::after */
+.menu-title h1::after,
+.category h1::after {
+  display: none !important;
+}
+
+/* El carrusel ya no debe tener altura fija */
+.carousel-window {
+  height: auto !important;
+  overflow: hidden !important;
+  border-bottom: 2px solid var(--linea-cafe) !important;
+  transition: height 0.3s ease !important;
+}
+
+.carousel-track {
+  display: flex !important;
+  align-items: flex-start !important;
+  transition: transform 0.45s ease !important;
+}
+
+.carousel-slide {
+  flex: 0 0 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 8px 46px 12px !important;
+  text-align: center !important;
+  overflow: visible !important;
+}
+
+.section-number {
+  margin-bottom: 6px !important;
+}
+
+.carousel-slide h2 {
+  margin-bottom: 12px !important;
+}
+
+.menu-item {
+  padding: 6px 0 !important;
+}
+
+/* Flechas más cerca del contenido */
+.carousel-btn {
+  top: 58% !important;
+}
+
+/* Celulares */
+@media (max-width: 850px) {
+  .menu-title,
+  .category {
+    margin-top: 12px !important;
+  }
+
+  .menu-title h1,
+  .category h1 {
+    font-size: 2rem !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .carousel-slide {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 34px 10px !important;
+  }
+
+  .carousel-btn {
+    top: 58% !important;
+  }
+
+  .carousel-dots {
+    margin-top: 10px !important;
+  }
+
+  .swipe-text {
+    margin-top: 8px !important;
+  }
+
+  .order-info {
+    margin-top: 12px !important;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .menu-title h1,
+  .category h1 {
+    font-size: 1.9rem !important;
+  }
+
+  .carousel-slide {
+    padding: 8px 30px 10px !important;
+  }
+}
+
+/* ===== ELIMINAR ESPACIO SOBRANTE DEL CARRUSEL ===== */
+
+.carousel-window {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border-bottom: 2px solid var(--linea-cafe) !important;
+}
+
+.carousel-track {
+  display: block !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.carousel-slide {
+  display: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 8px 46px 14px !important;
+  overflow: visible !important;
+  text-align: center !important;
+}
+
+.carousel-slide.active {
+  display: block !important;
+}
+
+.menu-item {
+  padding: 6px 0 !important;
+}
+
+.carousel-dots {
+  margin-top: 10px !important;
+}
+
+.swipe-text {
+  margin-top: 8px !important;
+}
+
+.order-info {
+  margin-top: 12px !important;
+}
+
+/* Flechas acomodadas al centro del contenido visible */
+.carousel-btn {
+  top: 55% !important;
+}
+
+/* Celulares */
+@media (max-width: 850px) {
+  .carousel-slide {
+    padding: 8px 34px 12px !important;
+  }
+
+  .menu-item {
+    padding: 5px 0 !important;
+  }
+
+  .carousel-btn {
+    top: 55% !important;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .carousel-slide {
+    padding: 8px 30px 10px !important;
+  }
+}
