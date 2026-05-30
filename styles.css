@@ -962,3 +962,104 @@ body::after {
     padding: 8px 30px 10px !important;
   }
 }
+
+/* ===== CORRECCIÓN PARA SCROLL EN CELULAR Y FONDO FIJO ===== */
+
+/* Fondo fijo estable */
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #2b1408;
+}
+
+/* Fondo inmóvil */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: url("imagenes/fondo111.jpg") center center / cover no-repeat;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+/* Capa encima del fondo */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(43, 20, 8, 0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* El carrusel no debe bloquear el scroll vertical */
+.carousel-window {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  touch-action: pan-y;
+}
+
+/* Se muestra solo la sección activa */
+.carousel-track {
+  display: block !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.carousel-slide {
+  display: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.carousel-slide.active {
+  display: block !important;
+}
+
+/* En secciones largas, la página completa debe bajar */
+.menu-card {
+  overflow: visible !important;
+}
+
+.menu-page {
+  overflow: visible !important;
+}
+
+/* Ajuste en celular */
+@media (max-width: 850px) {
+  body::before,
+  body::after {
+    height: 100lvh;
+  }
+
+  .carousel-window {
+    overflow: visible !important;
+    touch-action: pan-y;
+  }
+
+  .carousel-slide {
+    overflow: visible !important;
+    padding-bottom: 12px !important;
+  }
+
+  .menu-card {
+    width: 94% !important;
+    max-width: 430px !important;
+  }
+}
