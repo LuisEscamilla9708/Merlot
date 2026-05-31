@@ -10,12 +10,13 @@
   --dorado: #a9781b;
   --crema: #fffaf0;
   --texto: #5c3a22;
-  --linea-cafe: rgba(111, 66, 23, 0.38);
+  --linea-cafe: rgba(111, 66, 23, 0.42);
 }
 
 html,
 body {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -24,17 +25,20 @@ body {
   color: var(--texto);
   background-color: #2b1408;
   position: relative;
-  overflow-x: hidden;
 }
 
-/* Fondo del restaurante */
+/* Fondo fijo */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   background: url("imagenes/fondo111.jpg") center center / cover no-repeat;
   z-index: 0;
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 /* Capa ligera sobre el fondo */
@@ -42,173 +46,199 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(43, 20, 8, 0.14);
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(43, 20, 8, 0.12);
   z-index: 1;
   pointer-events: none;
 }
 
 /* Contenedor principal */
 .menu-page {
-  width: min(1000px, 100%);
+  width: min(1100px, 100%);
   min-height: 100vh;
   margin: 0 auto;
   padding: 26px 14px;
   display: grid;
-  grid-template-columns: minmax(0, 560px) 120px;
+  grid-template-columns: minmax(0, 620px) 120px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 18px;
   position: relative;
   z-index: 2;
 }
 
-/* Carta principal */
+/* Carta */
 .menu-card {
   width: 100%;
-  max-width: 560px;
+  max-width: 620px;
   margin: 0 auto;
-  background: rgba(255, 250, 240, 0.92);
-  border: 2px solid rgba(140, 92, 46, 0.45);
+  padding: 26px 36px 30px;
+  background: rgba(255, 250, 240, 0.93);
+  border: 2px solid rgba(140, 92, 46, 0.48);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.30);
-  padding: 24px 34px 30px;
   position: relative;
+  overflow: visible;
 }
 
 .menu-card::before {
   content: "";
   position: absolute;
   inset: 14px;
-  border: 2px solid rgba(145, 96, 47, 0.32);
+  border: 2px solid rgba(145, 96, 47, 0.34);
   pointer-events: none;
+}
+
+/* Elementos encima del borde decorativo */
+.menu-header,
+.menu-title,
+.category,
+.carousel,
+.order-info {
+  position: relative;
+  z-index: 1;
 }
 
 /* Encabezado */
 .menu-header {
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
 .logo {
-  width: min(330px, 100%);
+  width: min(350px, 100%);
   display: block;
-  margin: 0 auto 6px;
+  margin: 0 auto 8px;
 }
 
 .schedule {
   display: inline-block;
   margin-top: 6px;
-  padding: 6px 16px;
+  padding: 7px 18px;
   border-radius: 999px;
   background: var(--cafe-oscuro);
   color: var(--crema);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   letter-spacing: 0.3px;
 }
 
 /* Título Menú */
+.menu-title,
 .category {
-  position: relative;
-  z-index: 1;
-  margin-top: 14px;
-}
-
-.category h1 {
-  color: var(--cafe-oscuro);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1;
-  margin-bottom: 10px;
+  margin-top: 16px;
   text-align: center;
-  position: relative;
-  padding-bottom: 2px;
 }
 
-.category h1::after {
-  content: "";
-  display: block;
+.menu-title h1,
+.category h1 {
   width: 100%;
+  color: var(--cafe-oscuro);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1;
+  text-align: center;
+  margin: 0 auto 12px;
+  padding-bottom: 12px;
   border-bottom: 2px solid var(--linea-cafe);
-  margin: 12px 0 0;
 }
 
-/* Carrusel */
+.menu-title h1::after,
+.category h1::after {
+  display: none;
+}
+
+/* Carrusel por secciones */
 .carousel {
-  position: relative;
-  z-index: 1;
   margin-top: 6px;
+  touch-action: pan-y;
 }
 
 .carousel-window {
   width: 100%;
-  overflow: hidden;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
   border-bottom: 2px solid var(--linea-cafe);
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.45s ease;
+  display: block;
+  transform: none;
+  transition: none;
 }
 
+/* Solo se muestra la sección activa */
 .carousel-slide {
-  flex: 0 0 100%;
-  min-height: 390px;
-  padding: 10px 46px 18px;
+  display: none;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  padding: 8px 46px 14px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  overflow: visible;
+  touch-action: pan-y;
 }
 
-/* Número de platillo */
-.dish-number {
+.carousel-slide.active {
+  display: block;
+}
+
+/* Número de sección */
+.section-number {
   font-family: Arial, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   color: rgba(74, 35, 13, 0.72);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
-/* Nombre del platillo */
+/* Título de sección */
 .carousel-slide h2 {
   color: var(--cafe-oscuro);
-  font-size: clamp(1.7rem, 4vw, 2.4rem);
-  line-height: 1.05;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1;
   margin-bottom: 12px;
+  text-align: center;
 }
 
-/* Descripción */
-.dish-description {
-  font-size: 1rem;
-  line-height: 1.35;
+/* Platillos */
+.menu-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1.6px solid rgba(111, 66, 23, 0.28);
+  text-align: left;
 }
 
-/* Precio */
-.dish-price {
-  display: block;
-  margin-top: 14px;
+.menu-item h3 {
+  color: var(--cafe-oscuro);
+  font-size: 1.18rem;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.menu-item p {
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+
+.menu-item span {
   color: var(--cafe-oscuro);
   font-family: Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 0.94rem;
   font-weight: 900;
+  white-space: nowrap;
 }
 
-/* Imagen del platillo */
-.dish-image {
-  width: 100%;
-  max-width: 330px;
-  height: 150px;
-  margin-top: 10px;
-  border-radius: 16px;
-  object-fit: cover;
-  border: 2px solid var(--linea-cafe);
-  box-shadow: 0 8px 18px rgba(74, 35, 13, 0.25);
-}
-
-/* Botones del carrusel */
+/* Flechas */
 .carousel-btn {
   position: absolute;
-  top: 39%;
+  top: 54%;
   transform: translateY(-50%);
   width: 34px;
   height: 34px;
@@ -219,7 +249,7 @@ body::after {
   font-size: 1.8rem;
   line-height: 1;
   cursor: pointer;
-  z-index: 3;
+  z-index: 5;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
 }
 
@@ -231,12 +261,12 @@ body::after {
   right: 2px;
 }
 
-/* Puntos del carrusel */
+/* Puntos */
 .carousel-dots {
   display: flex;
   justify-content: center;
   gap: 7px;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .dot {
@@ -256,29 +286,28 @@ body::after {
 .swipe-text {
   text-align: center;
   font-size: 0.78rem;
-  margin-top: 10px;
+  margin-top: 8px;
   color: rgba(74, 35, 13, 0.75);
 }
 
 /* Aviso final */
 .order-info {
-  position: relative;
-  z-index: 1;
-  margin-top: 14px;
-  padding: 10px 12px;
+  margin-top: 12px;
+  padding: 12px 14px;
   background: rgba(111, 66, 23, 0.08);
-  border-radius: 14px;
+  border-radius: 16px;
   text-align: center;
 }
 
 .order-info h2 {
   color: var(--cafe-oscuro);
-  font-size: 1rem;
-  margin-bottom: 0;
+  font-size: 1.05rem;
 }
 
-/* Texto lateral en escritorio */
+/* Texto lateral escritorio */
 .side-title {
+  position: sticky;
+  top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,10 +331,7 @@ body::after {
   color: rgba(255, 250, 240, 0.9);
 }
 
-/* ========================= */
 /* TABLETAS */
-/* ========================= */
-
 @media (max-width: 1024px) {
   body::after {
     background: rgba(43, 20, 8, 0.10);
@@ -313,146 +339,138 @@ body::after {
 
   .menu-page {
     display: block;
-    padding: 34px 0;
+    padding: 30px 0;
   }
 
   .menu-card {
-    width: 74%;
-    max-width: 540px;
-    padding: 22px 28px 28px;
-    background: rgba(255, 250, 240, 0.90);
+    width: 84%;
+    max-width: 620px;
+    padding: 24px 32px 30px;
   }
 
   .logo {
-    width: min(300px, 100%);
+    width: min(330px, 100%);
   }
 
   .side-title {
     display: none;
   }
 
-  .category h1 {
-    font-size: 2.4rem;
-  }
-
   .carousel-slide {
-    min-height: 370px;
-    padding: 10px 42px 18px;
+    padding: 8px 42px 14px;
   }
 
   .carousel-slide h2 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
 
-  .dish-description {
-    font-size: 0.94rem;
-  }
-
-  .dish-price {
-    font-size: 1.15rem;
-  }
-
-  .dish-image {
-    max-width: 310px;
-    height: 145px;
+  .menu-item h3 {
+    font-size: 1.12rem;
   }
 }
 
-/* ========================= */
 /* CELULARES */
-/* ========================= */
-
 @media (max-width: 850px) {
+  body::before,
   body::after {
-    background: rgba(43, 20, 8, 0.18);
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  body::after {
+    background: rgba(43, 20, 8, 0.14);
   }
 
   .menu-page {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 24px 0;
+    padding: 18px 0;
+    overflow: visible;
   }
 
   .menu-card {
-    width: 76%;
-    max-width: 360px;
-    padding: 18px 15px 24px;
-    background: rgba(255, 250, 240, 0.92);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    width: 94%;
+    max-width: 430px;
+    padding: 20px 20px 24px;
+    background: rgba(255, 250, 240, 0.93);
+    overflow: visible;
   }
 
   .menu-card::before {
-    inset: 9px;
+    inset: 10px;
   }
 
   .logo {
-    width: min(225px, 100%);
+    width: min(280px, 100%);
   }
 
   .schedule {
-    font-size: 0.70rem;
-    padding: 5px 12px;
+    font-size: 0.8rem;
+    padding: 7px 16px;
   }
 
+  .menu-title,
   .category {
-    margin-top: 12px;
+    margin-top: 14px;
   }
 
+  .menu-title h1,
   .category h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 12px;
     padding-bottom: 10px;
   }
 
-  .category h1::after {
-    border-bottom: 2px solid var(--linea-cafe);
-    margin: 10px 0 0;
+  .carousel {
+    margin-top: 4px;
+    touch-action: pan-y;
   }
 
-  .carousel {
-    margin-top: 2px;
+  .carousel-window {
+    overflow: visible;
+    touch-action: pan-y;
   }
 
   .carousel-slide {
-    min-height: 330px;
-    padding: 8px 34px 16px;
-    justify-content: flex-start;
+    padding: 8px 34px 12px;
+    overflow: visible;
+    touch-action: pan-y;
   }
 
-  .dish-number {
-    font-size: 0.66rem;
-    margin-bottom: 8px;
+  .section-number {
+    font-size: 0.72rem;
+    margin-bottom: 6px;
   }
 
   .carousel-slide h2 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
   }
 
-  .dish-description {
-    font-size: 0.78rem;
-    line-height: 1.28;
+  .menu-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 6px 0;
   }
 
-  .dish-price {
-    margin-top: 12px;
-    font-size: 0.95rem;
+  .menu-item h3 {
+    font-size: 1rem;
   }
 
-  .dish-image {
-    max-width: 240px;
-    height: 115px;
-    margin-top: 12px;
-    border-radius: 12px;
+  .menu-item p {
+    font-size: 0.76rem;
+  }
+
+  .menu-item span {
+    font-size: 0.82rem;
   }
 
   .carousel-btn {
-    top: 36%;
-    width: 28px;
-    height: 28px;
-    font-size: 1.4rem;
+    top: 54%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.55rem;
   }
 
   .carousel-btn.prev {
@@ -464,602 +482,91 @@ body::after {
   }
 
   .carousel-dots {
-    gap: 6px;
-    margin-top: 12px;
+    gap: 7px;
+    margin-top: 10px;
   }
 
   .dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
   }
 
   .swipe-text {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
+    margin-top: 8px;
   }
 
   .order-info {
-    margin-top: 14px;
-    padding: 10px 12px;
+    margin-top: 12px;
+    padding: 11px 12px;
   }
 
   .order-info h2 {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 }
 
-/* ========================= */
 /* CELULARES PEQUEÑOS */
-/* ========================= */
-
 @media (max-width: 480px) {
   body::after {
     background: rgba(43, 20, 8, 0.08);
   }
 
   .menu-page {
-    padding: 22px 0;
-  }
-
-  .menu-card {
-    width: 72%;
-    max-width: 330px;
-    padding: 16px 14px 22px;
-    background: rgba(255, 250, 240, 0.93);
-  }
-
-  .logo {
-    width: min(205px, 100%);
-  }
-
-  .category h1 {
-    font-size: 1.42rem;
-  }
-
-  .carousel-slide {
-    min-height: 310px;
-    padding: 6px 30px 14px;
-  }
-
-  .carousel-slide h2 {
-    font-size: 1.08rem;
-  }
-
-  .dish-description {
-    font-size: 0.72rem;
-  }
-
-  .dish-price {
-    font-size: 0.86rem;
-  }
-
-  .dish-image {
-    max-width: 210px;
-    height: 100px;
-    margin-top: 10px;
-  }
-
-  .carousel-btn {
-    top: 36%;
-    width: 26px;
-    height: 26px;
-    font-size: 1.25rem;
-  }
-
-  .schedule {
-    font-size: 0.68rem;
-  }
-
-  .order-info h2 {
-    font-size: 0.82rem;
-  }
-}
-
-/* Quitar espacio blanco debajo de la imagen en celular */
-@media (max-width: 850px) {
-  .carousel-slide {
-    min-height: auto !important;
-    padding: 8px 30px 10px !important;
-  }
-
-  .dish-image {
-    max-width: 260px !important;
-    height: 135px !important;
-    margin-top: 10px !important;
-    margin-bottom: 4px !important;
-    object-fit: cover;
-  }
-
-  .carousel-window {
-    margin-bottom: 0 !important;
-  }
-
-  .carousel-dots {
-    margin-top: 10px !important;
-  }
-
-  .swipe-text {
-    margin-top: 8px !important;
-  }
-}
-
-/* Ajuste para celulares pequeños */
-@media (max-width: 480px) {
-  .carousel-slide {
-    min-height: auto !important;
-    padding: 6px 26px 8px !important;
-  }
-
-  .dish-image {
-    max-width: 240px !important;
-    height: 125px !important;
-    margin-top: 8px !important;
-    margin-bottom: 2px !important;
-    object-fit: cover;
-  }
-}
-
-/* ========================= */
-/* HACER MÁS GRANDE EN CELULARES */
-/* ========================= */
-
-@media (max-width: 850px) {
-  .menu-page {
-    padding: 18px 0;
-  }
-
-  .menu-card {
-    width: 88% !important;
-    max-width: 430px !important;
-    padding: 20px 20px 26px !important;
-  }
-
-  .menu-card::before {
-    inset: 10px !important;
-  }
-
-  .logo {
-    width: min(285px, 100%) !important;
-  }
-
-  .schedule {
-    font-size: 0.82rem !important;
-    padding: 7px 16px !important;
-  }
-
-  .category {
-    margin-top: 16px !important;
-  }
-
-  .category h1 {
-    font-size: 2.1rem !important;
-    margin-bottom: 12px !important;
-  }
-
-  .carousel-slide {
-    min-height: auto !important;
-    padding: 12px 38px 12px !important;
-  }
-
-  .dish-number {
-    font-size: 0.78rem !important;
-    margin-bottom: 10px !important;
-  }
-
-  .carousel-slide h2 {
-    font-size: 1.55rem !important;
-    margin-bottom: 10px !important;
-  }
-
-  .dish-description {
-    font-size: 0.92rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .dish-price {
-    font-size: 1.15rem !important;
-    margin-top: 14px !important;
-  }
-
-  .dish-image {
-    max-width: 310px !important;
-    height: 155px !important;
-    margin-top: 14px !important;
-    margin-bottom: 4px !important;
-    border-radius: 14px !important;
-    object-fit: cover;
-  }
-
-  .carousel-btn {
-    width: 34px !important;
-    height: 34px !important;
-    font-size: 1.65rem !important;
-    top: 48% !important;
-  }
-
-  .carousel-btn.prev {
-    left: 2px !important;
-  }
-
-  .carousel-btn.next {
-    right: 2px !important;
-  }
-
-  .carousel-dots {
-    gap: 8px !important;
-    margin-top: 12px !important;
-  }
-
-  .dot {
-    width: 9px !important;
-    height: 9px !important;
-  }
-
-  .swipe-text {
-    font-size: 0.82rem !important;
-    margin-top: 10px !important;
-  }
-
-  .order-info {
-    margin-top: 14px !important;
-    padding: 12px 14px !important;
-  }
-
-  .order-info h2 {
-    font-size: 1rem !important;
-  }
-}
-
-/* ========================= */
-/* CELULARES PEQUEÑOS */
-/* ========================= */
-
-@media (max-width: 480px) {
-  .menu-page {
     padding: 16px 0;
   }
 
   .menu-card {
-    width: 90% !important;
-    max-width: 390px !important;
-    padding: 18px 18px 24px !important;
+    width: 94%;
+    max-width: 395px;
+    padding: 18px 18px 22px;
   }
 
   .logo {
-    width: min(265px, 100%) !important;
+    width: min(260px, 100%);
   }
 
   .schedule {
-    font-size: 0.78rem !important;
-    padding: 7px 15px !important;
+    font-size: 0.76rem;
+    padding: 6px 14px;
   }
 
+  .menu-title h1,
   .category h1 {
-    font-size: 2rem !important;
+    font-size: 1.9rem;
   }
 
   .carousel-slide {
-    padding: 10px 34px 10px !important;
-  }
-
-  .dish-number {
-    font-size: 0.74rem !important;
+    padding: 8px 30px 10px;
   }
 
   .carousel-slide h2 {
-    font-size: 1.42rem !important;
-  }
-
-  .dish-description {
-    font-size: 0.86rem !important;
-  }
-
-  .dish-price {
-    font-size: 1.08rem !important;
-  }
-
-  .dish-image {
-    max-width: 285px !important;
-    height: 145px !important;
-  }
-
-  .carousel-btn {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 1.55rem !important;
-  }
-
-  .order-info h2 {
-    font-size: 0.95rem !important;
-  }
-}
-
-/* ===== CORRECCIÓN FINAL: CENTRAR MENÚ Y QUITAR ESPACIO SOBRANTE ===== */
-
-.menu-title,
-.category {
-  text-align: center !important;
-  margin-top: 14px !important;
-}
-
-.menu-title h1,
-.category h1 {
-  display: block !important;
-  width: 100% !important;
-  color: var(--cafe-oscuro) !important;
-  font-size: clamp(2rem, 5vw, 3rem) !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  margin: 0 auto 14px !important;
-  padding-bottom: 12px !important;
-  border-bottom: 2px solid var(--linea-cafe) !important;
-}
-
-/* Elimina líneas duplicadas si tu versión anterior usaba ::after */
-.menu-title h1::after,
-.category h1::after {
-  display: none !important;
-}
-
-/* El carrusel ya no debe tener altura fija */
-.carousel-window {
-  height: auto !important;
-  overflow: hidden !important;
-  border-bottom: 2px solid var(--linea-cafe) !important;
-  transition: height 0.3s ease !important;
-}
-
-.carousel-track {
-  display: flex !important;
-  align-items: flex-start !important;
-  transition: transform 0.45s ease !important;
-}
-
-.carousel-slide {
-  flex: 0 0 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  padding: 8px 46px 12px !important;
-  text-align: center !important;
-  overflow: visible !important;
-}
-
-.section-number {
-  margin-bottom: 6px !important;
-}
-
-.carousel-slide h2 {
-  margin-bottom: 12px !important;
-}
-
-.menu-item {
-  padding: 6px 0 !important;
-}
-
-/* Flechas más cerca del contenido */
-.carousel-btn {
-  top: 58% !important;
-}
-
-/* Celulares */
-@media (max-width: 850px) {
-  .menu-title,
-  .category {
-    margin-top: 12px !important;
-  }
-
-  .menu-title h1,
-  .category h1 {
-    font-size: 2rem !important;
-    text-align: center !important;
-    margin-bottom: 12px !important;
-    padding-bottom: 10px !important;
-  }
-
-  .carousel-slide {
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 8px 34px 10px !important;
-  }
-
-  .carousel-btn {
-    top: 58% !important;
-  }
-
-  .carousel-dots {
-    margin-top: 10px !important;
-  }
-
-  .swipe-text {
-    margin-top: 8px !important;
-  }
-
-  .order-info {
-    margin-top: 12px !important;
-  }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-  .menu-title h1,
-  .category h1 {
-    font-size: 1.9rem !important;
-  }
-
-  .carousel-slide {
-    padding: 8px 30px 10px !important;
-  }
-}
-
-/* ===== ELIMINAR ESPACIO SOBRANTE DEL CARRUSEL ===== */
-
-.carousel-window {
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: hidden !important;
-  border-bottom: 2px solid var(--linea-cafe) !important;
-}
-
-.carousel-track {
-  display: block !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-.carousel-slide {
-  display: none !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  padding: 8px 46px 14px !important;
-  overflow: visible !important;
-  text-align: center !important;
-}
-
-.carousel-slide.active {
-  display: block !important;
-}
-
-.menu-item {
-  padding: 6px 0 !important;
-}
-
-.carousel-dots {
-  margin-top: 10px !important;
-}
-
-.swipe-text {
-  margin-top: 8px !important;
-}
-
-.order-info {
-  margin-top: 12px !important;
-}
-
-/* Flechas acomodadas al centro del contenido visible */
-.carousel-btn {
-  top: 55% !important;
-}
-
-/* Celulares */
-@media (max-width: 850px) {
-  .carousel-slide {
-    padding: 8px 34px 12px !important;
+    font-size: 1.48rem;
   }
 
   .menu-item {
-    padding: 5px 0 !important;
+    padding: 5px 0;
+  }
+
+  .menu-item h3 {
+    font-size: 0.92rem;
+  }
+
+  .menu-item p {
+    font-size: 0.68rem;
+  }
+
+  .menu-item span {
+    font-size: 0.76rem;
   }
 
   .carousel-btn {
-    top: 55% !important;
-  }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-  .carousel-slide {
-    padding: 8px 30px 10px !important;
-  }
-}
-
-/* ===== CORRECCIÓN PARA SCROLL EN CELULAR Y FONDO FIJO ===== */
-
-/* Fondo fijo estable */
-html,
-body {
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: #2b1408;
-}
-
-/* Fondo inmóvil */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  background: url("imagenes/fondo111.jpg") center center / cover no-repeat;
-  z-index: 0;
-  pointer-events: none;
-  transform: translateZ(0);
-}
-
-/* Capa encima del fondo */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  background: rgba(43, 20, 8, 0.12);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* El carrusel no debe bloquear el scroll vertical */
-.carousel-window {
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important;
-  touch-action: pan-y;
-}
-
-/* Se muestra solo la sección activa */
-.carousel-track {
-  display: block !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-.carousel-slide {
-  display: none !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  overflow: visible !important;
-}
-
-.carousel-slide.active {
-  display: block !important;
-}
-
-/* En secciones largas, la página completa debe bajar */
-.menu-card {
-  overflow: visible !important;
-}
-
-.menu-page {
-  overflow: visible !important;
-}
-
-/* Ajuste en celular */
-@media (max-width: 850px) {
-  body::before,
-  body::after {
-    height: 100lvh;
+    width: 30px;
+    height: 30px;
+    font-size: 1.45rem;
   }
 
-  .carousel-window {
-    overflow: visible !important;
-    touch-action: pan-y;
-  }
-
-  .carousel-slide {
-    overflow: visible !important;
-    padding-bottom: 12px !important;
-  }
-
-  .menu-card {
-    width: 94% !important;
-    max-width: 430px !important;
+  .order-info h2 {
+    font-size: 0.88rem;
   }
 }
