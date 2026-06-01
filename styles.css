@@ -38,10 +38,9 @@ body::before {
   background: url("imagenes/fondo111.jpg") center center / cover no-repeat;
   z-index: 0;
   pointer-events: none;
-  transform: translateZ(0);
 }
 
-/* Capa ligera sobre el fondo */
+/* Capa sobre el fondo */
 body::after {
   content: "";
   position: fixed;
@@ -54,7 +53,7 @@ body::after {
   pointer-events: none;
 }
 
-/* Contenedor principal */
+/* Contenedor general */
 .menu-page {
   width: min(1100px, 100%);
   min-height: 100vh;
@@ -90,10 +89,9 @@ body::after {
   pointer-events: none;
 }
 
-/* Elementos encima del borde decorativo */
+/* Capas internas */
 .menu-header,
 .menu-title,
-.category,
 .carousel,
 .order-info {
   position: relative;
@@ -123,15 +121,13 @@ body::after {
   letter-spacing: 0.3px;
 }
 
-/* Título Menú */
-.menu-title,
-.category {
+/* Título */
+.menu-title {
   margin-top: 16px;
   text-align: center;
 }
 
-.menu-title h1,
-.category h1 {
+.menu-title h1 {
   width: 100%;
   color: var(--cafe-oscuro);
   font-size: clamp(2.2rem, 5vw, 3.2rem);
@@ -142,15 +138,11 @@ body::after {
   border-bottom: 2px solid var(--linea-cafe);
 }
 
-.menu-title h1::after,
-.category h1::after {
-  display: none;
-}
-
 /* Carrusel por secciones */
 .carousel {
   margin-top: 6px;
-  touch-action: pan-y;
+  position: relative;
+  touch-action: auto;
 }
 
 .carousel-window {
@@ -159,8 +151,7 @@ body::after {
   min-height: 0;
   overflow: visible;
   border-bottom: 2px solid var(--linea-cafe);
-  touch-action: pan-y;
-  overscroll-behavior: contain;
+  touch-action: auto;
 }
 
 .carousel-track {
@@ -169,7 +160,7 @@ body::after {
   transition: none;
 }
 
-/* Solo se muestra la sección activa */
+/* Ocultar todas las secciones */
 .carousel-slide {
   display: none;
   width: 100%;
@@ -179,9 +170,9 @@ body::after {
   padding: 8px 46px 14px;
   text-align: center;
   overflow: visible;
-  touch-action: pan-y;
 }
 
+/* Mostrar solo la activa */
 .carousel-slide.active {
   display: block;
 }
@@ -195,7 +186,7 @@ body::after {
   margin-bottom: 6px;
 }
 
-/* Título de sección */
+/* Título de cada sección */
 .carousel-slide h2 {
   color: var(--cafe-oscuro);
   font-size: clamp(1.9rem, 4vw, 2.6rem);
@@ -204,7 +195,7 @@ body::after {
   text-align: center;
 }
 
-/* Platillos */
+/* Artículos del menú */
 .menu-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -410,13 +401,11 @@ body::after {
     padding: 7px 16px;
   }
 
-  .menu-title,
-  .category {
+  .menu-title {
     margin-top: 14px;
   }
 
-  .menu-title h1,
-  .category h1 {
+  .menu-title h1 {
     font-size: 2rem;
     margin-bottom: 12px;
     padding-bottom: 10px;
@@ -424,18 +413,17 @@ body::after {
 
   .carousel {
     margin-top: 4px;
-    touch-action: pan-y;
+    touch-action: auto;
   }
 
   .carousel-window {
     overflow: visible;
-    touch-action: pan-y;
+    touch-action: auto;
   }
 
   .carousel-slide {
     padding: 8px 34px 12px;
     overflow: visible;
-    touch-action: pan-y;
   }
 
   .section-number {
@@ -531,8 +519,7 @@ body::after {
     padding: 6px 14px;
   }
 
-  .menu-title h1,
-  .category h1 {
+  .menu-title h1 {
     font-size: 1.9rem;
   }
 
@@ -568,5 +555,272 @@ body::after {
 
   .order-info h2 {
     font-size: 0.88rem;
+  }
+}
+
+/* ========================= */
+/* SECCIÓN 9: EVENTOS */
+/* ========================= */
+
+.event-slide {
+  text-align: center;
+}
+
+.event-message {
+  padding: 12px 10px 16px;
+  border-bottom: 2px solid var(--linea-cafe);
+}
+
+.event-message h3 {
+  color: var(--cafe-oscuro);
+  font-size: 1.65rem;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.event-message p {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--texto);
+  margin-bottom: 14px;
+}
+
+.reserve-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--cafe-oscuro);
+  color: var(--crema);
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 6px 14px rgba(74, 35, 13, 0.25);
+}
+
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.event-photo {
+  min-height: 115px;
+  border: 2px dashed rgba(111, 66, 23, 0.42);
+  border-radius: 14px;
+  background: rgba(111, 66, 23, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(74, 35, 13, 0.72);
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.event-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Celulares */
+@media (max-width: 850px) {
+  .event-message {
+    padding: 10px 6px 14px;
+  }
+
+  .event-message h3 {
+    font-size: 1.35rem;
+  }
+
+  .event-message p {
+    font-size: 0.88rem;
+  }
+
+  .reserve-button {
+    font-size: 0.84rem;
+    padding: 9px 16px;
+  }
+
+  .event-gallery {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .event-photo {
+    min-height: 120px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .event-message h3 {
+    font-size: 1.2rem;
+  }
+
+  .event-message p {
+    font-size: 0.8rem;
+  }
+
+  .event-photo {
+    min-height: 105px;
+  }
+}
+
+/* ========================= */
+/* FOTOS DE BUFFET */
+/* ========================= */
+
+.buffet-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.buffet-photo {
+  height: 135px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--linea-cafe);
+  box-shadow: 0 8px 18px rgba(74, 35, 13, 0.22);
+  background: rgba(111, 66, 23, 0.08);
+}
+
+.buffet-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Celulares */
+@media (max-width: 850px) {
+  .buffet-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .buffet-photo {
+    height: 135px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .buffet-photo {
+    height: 120px;
+  }
+}
+
+/* ========================= */
+/* PÁGINA EXTRA: EVENTOS */
+/* ========================= */
+
+.event-slide {
+  text-align: center;
+}
+
+.event-message {
+  padding: 12px 10px 16px;
+  border-bottom: 2px solid var(--linea-cafe);
+}
+
+.event-message h3 {
+  color: var(--cafe-oscuro);
+  font-size: 1.65rem;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.event-message p {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--texto);
+  margin-bottom: 14px;
+}
+
+.reserve-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--cafe-oscuro);
+  color: var(--crema);
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 6px 14px rgba(74, 35, 13, 0.25);
+}
+
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.event-photo {
+  height: 120px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--linea-cafe);
+  background: rgba(111, 66, 23, 0.08);
+  box-shadow: 0 8px 18px rgba(74, 35, 13, 0.22);
+}
+
+.event-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Celulares */
+@media (max-width: 850px) {
+  .event-message {
+    padding: 10px 6px 14px;
+  }
+
+  .event-message h3 {
+    font-size: 1.35rem;
+  }
+
+  .event-message p {
+    font-size: 0.88rem;
+  }
+
+  .reserve-button {
+    font-size: 0.84rem;
+    padding: 9px 16px;
+  }
+
+  .event-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .event-photo {
+    height: 135px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .event-message h3 {
+    font-size: 1.2rem;
+  }
+
+  .event-message p {
+    font-size: 0.8rem;
+  }
+
+  .event-photo {
+    height: 120px;
   }
 }

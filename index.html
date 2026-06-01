@@ -6,7 +6,7 @@
 
   <title>Menú Desayunos Ari Merlot</title>
 
-<link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="styles.css?v=24" />
 </head>
 <body>
 
@@ -20,7 +20,7 @@
           class="logo" 
         />
 
-        <p class="schedule">Horario: 7:00 am a 2:00 pm</p>
+        <p class="schedule">Horario: 8:00 am a 2:00 pm</p>
       </header>
 
       <section class="menu-title">
@@ -471,7 +471,86 @@
                 </div>
                 <span>$65 / $290</span>
               </article>
+
+              <article class="menu-item">
+                <div>
+                  <h3>Cantarito</h3>
+                </div>
+                <span>1/4 $68 / Litro $180</span>
+              </article>
+
+              <article class="menu-item">
+                <div>
+                  <h3>Mezcal agave papalome</h3>
+                </div>
+                <span>Copeo $160 / Botella $700</span>
+              </article>
             </section>
+
+            <!-- PÁGINA EXTRA: BUFFET -->
+<!-- PÁGINA EXTRA: BUFFET -->
+<section class="carousel-slide info-slide">
+  <h2>Buffet</h2>
+
+  <div class="special-message">
+    <h3>Te esperamos sábados y domingos</h3>
+
+    <p>
+      Disfruta nuestro buffet familiar.
+    </p>
+
+    <p class="buffet-price">
+      Adultos $170 · Niños $130
+    </p>
+
+    <p>
+      Los domingos tenemos música en vivo a partir de las 10:00 de la mañana.
+    </p>
+  </div>
+
+  <div class="buffet-gallery">
+    <div class="buffet-photo">
+      <img src="imagenes/buffet.1.jpg" alt="Buffet de Desayunos Ari Merlot">
+    </div>
+
+    <div class="buffet-photo">
+      <img src="imagenes/BUFEET-2.jpg" alt="Buffet familiar en Desayunos Ari Merlot">
+    </div>
+  </div>
+</section>
+
+            <!-- PÁGINA EXTRA: EVENTOS -->
+<!-- PÁGINA EXTRA: EVENTOS -->
+<section class="carousel-slide event-slide">
+  <h2>Eventos</h2>
+
+  <div class="event-message">
+    <h3>Festeja con nosotros</h3>
+
+    <p>
+      Festeja con nosotros tu cumpleaños, aniversario, pedida de mano,
+      graduación, bautizo, baby shower y más...
+    </p>
+
+    <a class="reserve-button" href="tel:5632643738">
+      Reserva al 5632643738
+    </a>
+  </div>
+
+  <div class="event-gallery">
+    <div class="event-photo">
+      <img src="imagenes/bautizo.jpg" alt="Evento en Desayunos Ari Merlot">
+    </div>
+
+    <div class="event-photo">
+      <img src="imagenes/babyshower.jpg" alt="Celebración en Desayunos Ari Merlot">
+    </div>
+
+    <div class="event-photo">
+      <img src="imagenes/enamorados.jpg" alt="Festejo en Desayunos Ari Merlot">
+    </div>
+  </div>
+</section>
 
           </div>
         </div>
@@ -491,71 +570,71 @@
           <button class="dot" type="button" aria-label="Ver sección Bebidas"></button>
         </div>
 
-        <p class="swipe-text">Desliza o usa las flechas para ver más secciones.</p>
+        <p class="swipe-text">Usa los puntos para ver el menú y las flechas para buffet y eventos.</p>
       </section>
 
       <section class="order-info">
-        <h2>Todos llevan café y pan.</h2>
+        <h2>Gracias por visitarnos.</h2>
       </section>
 
     </section>
 
     <aside class="side-title" aria-hidden="true">
       <span>MENÚ</span>
-      <small>7:00am a 2:00pm</small>
+      <small>8:00am a 2:00pm</small>
     </aside>
   </main>
 
-<script>
-  const slides = document.querySelectorAll(".carousel-slide");
-  const dots = document.querySelectorAll(".dot");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
+  <script>
+    const slides = document.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".dot");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function showSlide(index) {
-    if (index < 0) {
-      currentIndex = slides.length - 1;
-    } else if (index >= slides.length) {
-      currentIndex = 0;
-    } else {
-      currentIndex = index;
+    function showSlide(index) {
+      if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex && currentIndex < dots.length);
+      });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
 
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === currentIndex);
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
     });
 
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  function nextSlide() {
-    showSlide(currentIndex + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentIndex - 1);
-  }
-
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      showSlide(index);
-    });
-  });
-
-  showSlide(0);
-</script>
+    showSlide(0);
+  </script>
 
 </body>
 </html>
